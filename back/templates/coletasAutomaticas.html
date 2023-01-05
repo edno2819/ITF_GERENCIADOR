@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Coletas Automáticas</title>
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container w-50 px-3 py-2" id="icon-grid">
+    <div class="accordion">
+
+        {% for key, value in itens_por_areas.items %}
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#{{ value.id }}">
+                    {{ key }} -> {{ value|length }} itens coletados
+                </button>
+            </h2>
+            <div id="{{ value.id }}" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        {% for user in value.value %}
+                        <li>{{ user }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

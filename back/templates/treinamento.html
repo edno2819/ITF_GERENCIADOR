@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Sísifo Treinamentos</title>
+{% endblock %}
+
+{% block content %}
+<div class="container w-50 px-3 py-2" id="icon-grid">
+    <h3>{{ aula.nome }}</h3>
+    <br>
+    {% if aula.descricao %}
+    <div class="text-white">
+        {{ aula.descricao|safe }}
+    </div>
+    <br>
+    {% endif %}
+
+    <video width="800" controls>
+        <source src="{{ aula.video.url }}" type="video/mp4">
+        <source src="{{ aula.video.url }}" type="video/ogg">
+        Your browser does not support HTML video.
+    </video>
+</div>
+
+{% endblock %}

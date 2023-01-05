@@ -1,0 +1,56 @@
+{% load static %}
+
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="{% static 'imagens/sisifo.png' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap_5.0.2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/person.css' %}">
+
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+
+    <script  src="{% static 'js/bootstrap_5.0.0.2.js' %}"></script>
+    {% block head %}{% endblock %}
+
+</head>
+
+<body class="bg-dark text-warning" style="height:100%;     background-color: black !important;
+    background-image: url('{% static "pngtree-tmall-beer-festival-black-minimalist-banner-poster-image_194293.jpg" %}');
+    background-position: right; 
+    background-repeat: no-repeat;   
+    background-size: 80%;
+    background-attachment: fixed;
+    ">
+    
+    <div class="cover-container d-flex w-100 h-100 p-3 mb-3 mx-auto flex-column text-center ">
+        <header class="mb-auto">
+            <div>
+                <div class="d-flex  align-items-center float-md-start mb-0"  style="height: 40px;">
+                    <img class="mx-3" src="{% static 'ITF_LOGO.jpg' %}" style="height: 100%"  alt="Italian Trulli">
+                    <h3>SÍSIFO</h3>
+                </div>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link text-warning" href="/admin">Admin</a>
+                </nav>
+            </div>
+        </header>
+        <hr />
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <br><br>
+    </div>
+
+</body>
+
+</html>

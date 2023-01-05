@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Coletas Automáticas</title>
+<link rel="stylesheet" href="{% static 'css/coleta.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container w-50 px-3 py-2" id="icon-grid">
+    <h2 class="pb-2 border-bottom">Itens com coleta automática</h2><br>
+
+    <div class="container search-div mb-4">
+        <div class="row height d-flex justify-content-center align-items-center">
+            <div class="col-md-8">
+                <div class="search">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="form-control" placeholder="Em desenvolvimento">
+                    <button class="btn btn-primary">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion">
+
+        {% for key, value in itens_por_areas.items %}
+        <div class="accordion-item border border-dark">
+            <h2 class="accordion-header">
+                <button class="accordion-button bg-warning" style="height: 86px; color:azure" data-bs-toggle="collapse"
+                    data-bs-target="#{{ value.id }}">
+                    <div class="d-flex  justify-content-between w-100">
+                        <h4>{{ key }} </h4>
+                        <div class="mx-4">
+                            <h4>{{ value.value|length }} Itens</h4>
+                        </div>
+                    </div>
+                </button>
+            </h2>
+            <div id="{{ value.id }}" class="accordion-collapse collapse">
+                <div class="accordion-body bg-black">
+                    <ul>
+                        {% for user in value.value %}
+                        <li>{{ user }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Home ITF</title>
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">INFORMATIVO IFT</h1>
+                <button type="button" class="btn-close text-warning" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="d-flex modal-body justify-content-center">
+                <object data="abc.pdf" type="application/pdf">
+                    <embed src='{% static "INFORMATIVO IFT (SODA).pdf" %}' width="1050px" height="650px"
+                        type="application/pdf"></embed>
+                </object>
+            </div>
+        </div>  
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "admin/change_list.html" %}
+{% load static %}
+
+{% block extrahead %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <input type="chart_data" id="myVar" name="variable" value="{{ chart_data }}">
+
+    <script type="text/javascript">
+      function ParseString(string){
+        string =  string.replaceAll("'", '"')
+        string = JSON.parse(string)
+        return string
+      }
+    </script>
+{% endblock %}
+
+{{ block.super }}
+{% block content %}
+
+    <div style="display:flex; flex:wrap; width:100%; margin: 25px;">
+        <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+        <div id="piechart_3d" style="width: 50%;"></div>
+
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        var bar_data = "{{ bar_data|safe  }}"
+        bar_data =  ParseString(bar_data)
+        console.log(bar_data)
+
+
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable(bar_data);
+
+          var options = {
+            chart: {
+              title: 'Tarefas por Colaboradores',
+              subtitle: 'Tarefas pertencentes ao time do ITF, 2022',
+              bar: {groupWidth: "12%"},
+
+            }
+          };
+  
+          var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+  
+          chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+    </script>
+    <script type="text/javascript">
+            google.charts.load("current", {packages:["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+
+            var pizza_data = "{{ pizza_data|safe  }}"
+            pizza_data =  ParseString(pizza_data)
+            
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable(pizza_data);
+      
+              var options = {
+                title: 'Situação das Atividades',
+                is3D: true,
+              };  
+      
+              var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+              chart.draw(data, options);
+            }
+    </script>
+
+
+{{ block.super }}
+{% endblock %}

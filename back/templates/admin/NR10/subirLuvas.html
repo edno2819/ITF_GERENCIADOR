@@ -1,0 +1,78 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+
+<div class="w-50">
+  <h3 class="input-group mb-3">Carregar PDF de relatorio de luvas:</h3>
+  <br>
+
+
+  <form method="POST" enctype="multipart/form-data" class="d-flex flex-column">
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Upload PDF</span>
+      </div>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" name="file" id="file" aria-describedby="inputGroupFileAddon01"
+          required>
+        <label class="custom-file-label" for="inputGroupFile01">Escolha o Documento</label>
+      </div>
+
+    </div>
+
+    <div class="d-flex mb-3 mt-2">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon02">Data do Exame</span>
+      </div>
+      <input type="date" id="data" class="form-control" name="data" min="2022-01-01" max="2032-12-31"
+        id="inputGroupFileAddon02" required>
+    </div>
+
+    <div class="d-flex mt-2">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon02">Páginas com as tabelas:</span>
+      </div>
+      <input type="text" id="pages" class="form-control" name="pages" required>
+    </div>
+    <div class="col-auto  mb-3">
+      <span id="passwordHelpInline" class="form-text">
+        Número das páginas separados por virgula. ex: 3,4,5,6,7
+      </span>
+    </div>
+
+    <button type="submit" class="btn btn-primary  mt-3">Carregar</button>
+  </form>
+
+  {% if result %}
+
+  <div class="alert alert-success mt-5" role="alert">
+    Dados salvos com sucesso!
+  </div>
+
+
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+      Funcionário não achados:
+    </a>
+    {% for value in nao_achados %}
+    <a href="#" class="list-group-item list-group-item-action">{{ value }}</a>
+    {% endfor %}
+  </div>
+
+  {% endif %}
+
+
+  {% if error %}
+  <div class="alert alert-danger mt-5" role="alert">
+    Algo deu errado!
+  </div>
+  {% endif %}
+
+  <script type="text/javascript">
+    $(function () {
+      $('#datepicker').datepicker();
+    });
+  </script>
+
+  {% endblock %}

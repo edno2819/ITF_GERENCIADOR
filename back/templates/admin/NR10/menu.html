@@ -1,0 +1,24 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+
+<div>
+    <h2 class="m-3 mb-5">Selecione a opção para carregamento:</h2>
+
+    <a href="/admin/NR10/extra/eletricista" class="m-2">
+        <button type="button" class="btn btn-primary btn-lg btn-block">Carregar Eletricistas</button>
+    </a>
+    <a href="/admin/NR10/extra/roupas" class="m-2">
+        <button type="button" class="btn btn-primary btn-lg btn-block">Carregar Roupas</button>
+    </a>
+    <a href="/admin/NR10/extra/luvas" class="m-2">
+        <button type="button" class="btn btn-primary btn-lg btn-block">Carregar Luvas</button>
+    </a>
+    <a href="/admin/NR10/extra/asu" class="m-2">
+        <button type="button" class="btn btn-primary btn-lg btn-block">Carregar Asus</button>
+    </a>
+
+</div>
+
+
+{% endblock %}

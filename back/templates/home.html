@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Sísifo Home</title>
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container w-50 px-3 py-2" id="icon-grid">
+    <h2 class="pb-2 border-bottom">O que você Deseja?</h2>
+
+    <div class="row row-cols-1 ">
+
+        <a href="saq/soda" style="display: block; text-decoration: none;" class=" div
+            col d-flex align-items-start   
+            pt-3 m-2
+            bg-warning text-white
+            border border-3 rounded border-warning">
+            <i class="m-3 fa-sharp fa-solid fa-download fa-2xl"></i>
+
+            <div>
+                <h4 class="fw-bold mb-0">Coleta automática?</h4>
+                <p>Como funciona a coleta automática atravéz do SODA.</p>
+            </div>
+        </a>
+
+        <a href="saq/form/soda" style="display: block; text-decoration: none;" class=" div
+            col d-flex align-items-start   
+            pt-3 m-2
+            bg-warning text-white
+            border border-3 rounded border-warning">
+            <i class="m-3 fa-sharp fa-solid fa-pen-to-square fa-2xl"></i>
+
+            <div>
+                <h4 class="fw-bold mb-0">Reporte MES</h4>
+                <p>Formulário para correção de subida automática de itens para o MES.</p>
+            </div>
+        </a>
+
+        <a href="saq/form/sugestao" style="display: block; text-decoration: none;" class=" div
+            col d-flex align-items-start   
+            pt-3 m-2
+            bg-warning text-white
+            border border-3 rounded border-warning">
+            <i class="m-3 fa-regular fa-comment fa-2xl"></i>
+
+            <div>
+                <h4 class="fw-bold mb-0">Sugestões</h4>
+                <p>Sugestões para o ITF.</p>
+            </div>
+        </a>
+
+        <a href="/saq/coletas" style="display: block; text-decoration: none;" 
+            class=" 
+                div
+                col d-flex align-items-start   
+                pt-3 m-2
+                bg-warning text-white
+                border border-3 rounded border-warning"
+                >
+                <i class="m-3 fa-sharp fa-solid fa-list fa-2xl"></i>
+            <div>
+                <h4 class="fw-bold mb-0">Itens com Coletas Automáticas</h4>
+                <p>Veja a lista de todos os itens que já estão subindo automaticamente para o MES.</p>
+            </div>
+        </a>
+
+        <a href="saq/teste" style="display: block; text-decoration: none;" 
+            class=" 
+                div
+                col d-flex align-items-start   
+                pt-3 m-2
+                bg-warning text-white
+                border border-3 rounded border-warning"
+                >
+                <i class="m-3 fa-sharp fa-solid fa-rocket fa-2xl"></i>
+                <i class="fa-sharp fa-solid fa-atom-simple"></i>
+            <div>
+                <h4 class="fw-bold mb-0">ProTech Magnifica</h4>
+                <p>Em busca da cervejaria do futuro.</p>
+            </div>
+        </a>
+
+
+    </div>
+</div>
+
+{% endblock %}

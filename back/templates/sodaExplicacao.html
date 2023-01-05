@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Teste ITF</title>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center d-flex align-items-stretch w-70">
+    <div class="justify-content-center">
+        <h1> - Como funciona a coleta automática?</h1>  
+        <br>
+        <embed  src='{% static "INFORMATIVO IFT (SODA).pdf" %}' width="1000" height="580px"  type="application/pdf">
+        </embed >
+    </div>
+</div>
+
+{% endblock %}

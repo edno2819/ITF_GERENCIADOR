@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<title>Formulário Correção Mes</title>
+
+{% endblock %}
+
+{% block content %}
+<div>
+
+    {% if resultado %}
+    <div class="alert alert-success alert-dismissible fade show ml-5" style="width: 20%;">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Sucesso!</strong> Relato feito com sucesso!.
+    </div>
+
+    {% endif %}
+
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Bootstrap</strong>
+                <small>11 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" style="width: 50%;">
+        <h2 class="fw-bold">Formulário para relatar inconsistência na coleta automática para o MES.</h2>
+        <hr>
+        <form method="POST" class="my-class">{% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary ">Enviar</button>
+        </form>
+
+    </div>
+</div>
+{% endblock %}
